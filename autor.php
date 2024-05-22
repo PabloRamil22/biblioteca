@@ -77,7 +77,7 @@
                                 <button type="submit" name="actualizar_autor" class="btn btn-primary">Actualizar</button>
                                 <a href="autor.php" class="btn btn-secondary ml-2">Cancelar</a>
                             <?php else : ?>
-                                <button type="submit" name="guardar_autor" class="btn btn-success">Guardar</button>
+                                <button type="submit" name="guardar_autor" class="btn btn-success">Añadir</button>
                             <?php endif; ?>
                         </div>
                     </div>

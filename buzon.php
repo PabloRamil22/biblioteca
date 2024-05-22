@@ -11,6 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["enviar_sugerencia"])) 
     $stmt->bindParam(':nombre', $nombre);
     $stmt->bindParam(':comentario', $comentario);
     $stmt->execute();
+    header("Location:buzon");
 }
 
 function validarDatos($datos) {
