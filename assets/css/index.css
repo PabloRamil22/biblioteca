@@ -1,0 +1,39 @@
+footer {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+footer .container {
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+.sugerencias-icon {
+    color: #007bff;
+    font-size: 24px;
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+}
+
+.sugerencias-icon:hover {
+    color: #0056b3;
+}
+
+.sugerencias-label {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    color: #000;
+}

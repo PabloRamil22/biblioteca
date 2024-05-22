@@ -26,9 +26,9 @@ DROP TABLE IF EXISTS `autores`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `autores` (
   `idautores` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(45) DEFAULT NULL,
+  `nombre` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`idautores`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,8 +37,32 @@ CREATE TABLE `autores` (
 
 LOCK TABLES `autores` WRITE;
 /*!40000 ALTER TABLE `autores` DISABLE KEYS */;
-INSERT INTO `autores` VALUES (1,'J.R.R Tolkien');
+INSERT INTO `autores` VALUES (1,'J.R.R Tolkien'),(2,'Miguel de Cervantes'),(3,'Miguel Mihura');
 /*!40000 ALTER TABLE `autores` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `buzon`
+--
+
+DROP TABLE IF EXISTS `buzon`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `buzon` (
+  `idbuzon` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) DEFAULT NULL,
+  `comentario` varchar(500) DEFAULT NULL,
+  PRIMARY KEY (`idbuzon`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `buzon`
+--
+
+LOCK TABLES `buzon` WRITE;
+/*!40000 ALTER TABLE `buzon` DISABLE KEYS */;
+/*!40000 ALTER TABLE `buzon` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -50,12 +74,12 @@ DROP TABLE IF EXISTS `libros`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `libros` (
   `idlibros` int NOT NULL AUTO_INCREMENT,
-  `titulo` varchar(45) DEFAULT NULL,
+  `titulo` varchar(200) DEFAULT NULL,
   `autor` int NOT NULL,
   PRIMARY KEY (`idlibros`),
   KEY `fk_libros_autores_idx` (`autor`),
   CONSTRAINT `fk_libros_autores` FOREIGN KEY (`autor`) REFERENCES `autores` (`idautores`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -64,7 +88,7 @@ CREATE TABLE `libros` (
 
 LOCK TABLES `libros` WRITE;
 /*!40000 ALTER TABLE `libros` DISABLE KEYS */;
-INSERT INTO `libros` VALUES (1,'El señor de los anillos',1);
+INSERT INTO `libros` VALUES (2,'El ingenioso hidalgo Don Quijote de la mancha',2),(3,'El señor de los anillos',1),(5,'Tres sombreros de copa',3);
 /*!40000 ALTER TABLE `libros` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -77,4 +101,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-22 16:29:01
+-- Dump completed on 2024-05-22 18:32:54

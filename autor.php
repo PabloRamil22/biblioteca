@@ -2,17 +2,15 @@
 
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <title>Gestión de Autores</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/autor.css">
 </head>
-
 <body>
     <div class="container mt-5">
-    <h2><a href="index.php" style="text-decoration: none; color: black;">Gestión de Autores</a></h2>
-
+        <h2><a href="index" style="text-decoration: none; color: black;">Gestión de Autores</a></h2>
 
         <?php
         // Agregar nuevo autor
@@ -21,7 +19,7 @@
             $sql = 'INSERT INTO autores (nombre) VALUES (:nombre)';
             $stmt = $conn->prepare($sql);
             $stmt->execute(['nombre' => $nombre]);
-            header("Location: autor");
+            header("Location: autor.php");
         }
 
         // Actualizar autor existente
@@ -55,7 +53,6 @@
             }
         }
 
-
         // Obtener autor para editar
         if (isset($_GET['editar'])) {
             $id = $_GET['editar'];
@@ -68,16 +65,24 @@
 
         <form action="autor.php" method="POST" class="mb-4">
             <input type="hidden" name="id" value="<?php echo isset($autor['idautores']) ? $autor['idautores'] : ''; ?>">
-            <div class="form-group">
-                <label for="nombre">Nombre del autor : </label>
-                <input type="text" name="nombre" class="form-control" value="<?php echo isset($autor['nombre']) ? $autor['nombre'] : ''; ?>" required>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="nombre">Nombre del autor:</label>
+                    <input type="text" name="nombre" class="form-control" value="<?php echo isset($autor['nombre']) ? $autor['nombre'] : ''; ?>" required>
+                </div>
+                <div class="form-group col-md-6 align-self-end">
+                    <div class="form-row">
+                        <div class="col-auto">
+                            <?php if (isset($autor['idautores'])) : ?>
+                                <button type="submit" name="actualizar_autor" class="btn btn-primary">Actualizar</button>
+                                <a href="autor.php" class="btn btn-secondary ml-2">Cancelar</a>
+                            <?php else : ?>
+                                <button type="submit" name="guardar_autor" class="btn btn-success">Guardar</button>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <?php if (isset($autor['idautores'])) : ?>
-                <button type="submit" name="actualizar_autor" class="btn btn-primary">Actualizar</button>
-                <a href="autor.php" class="btn btn-secondary">Cancelar</a>
-            <?php else : ?>
-                <button type="submit" name="guardar_autor" class="btn btn-primary">Guardar</button>
-            <?php endif; ?>
         </form>
 
         <h2>Lista de Autores</h2>
@@ -107,5 +112,4 @@
         </table>
     </div>
 </body>
-
 </html>

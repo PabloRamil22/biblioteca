@@ -64,11 +64,16 @@ $autores = $stmt_autores->fetchAll(PDO::FETCH_ASSOC);
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" class="mb-4">
         <input type="hidden" name="id_libro" value="<?php echo $libro['idlibros']; ?>">
         <div class="form-row">
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-8">
                 <label for="titulo">Título del Libro</label>
                 <input type="text" class="form-control" id="titulo" name="titulo" value="<?php echo $libro['titulo']; ?>" required>
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-auto align-self-end">
+                <button type="submit" class="btn btn-primary" name="editar_libro">Guardar Cambios</button>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
                 <label for="autor">Autor</label>
                 <select id="autor" class="form-control" name="autor" required>
                     <option selected disabled>Seleccionar Autor</option>
@@ -77,11 +82,9 @@ $autores = $stmt_autores->fetchAll(PDO::FETCH_ASSOC);
                     <?php endforeach; ?>
                 </select>
             </div>
-            <div class="form-group col-md-2">
-                <button type="submit" class="btn btn-primary" name="editar_libro">Guardar Cambios</button>
-            </div>
         </div>
     </form>
 </div>
 </body>
 </html>
+
