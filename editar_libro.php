@@ -60,7 +60,7 @@ $autores = $stmt_autores->fetchAll(PDO::FETCH_ASSOC);
 <div class="container mt-5">
     <h2 class="mb-4">Editar Libro</h2>
 
-    <!-- Formulario para editar el libro -->
+    
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" class="mb-4">
         <input type="hidden" name="id_libro" value="<?php echo $libro['idlibros']; ?>">
         <div class="form-row">

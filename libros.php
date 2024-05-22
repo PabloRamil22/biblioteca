@@ -54,9 +54,9 @@ $libros = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
 <div class="container mt-5">
-    <h2 class="mb-4"><a href="index.php" style="text-decoration: none; color: black;">Lista de Libros</a></h2>
+    <h2 class="mb-4"><a href="index" style="text-decoration: none; color: black;">Lista de Libros</a></h2>
 
-    <!-- Formulario para agregar un nuevo libro -->
+    
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" class="mb-4">
         <div class="form-row">
             <div class="form-group col-md-6">
