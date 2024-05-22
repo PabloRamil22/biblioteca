@@ -45,7 +45,7 @@
             if ($num_libros > 0) {
                 echo "<div class='alert alert-danger mt-3'>No se puede eliminar el autor porque tiene libros asociados. Elimina los libros primero.</div>";
             } else {
-                // Si no hay libros asociados, eliminar al autor
+                
                 $sql_eliminar_autor = 'DELETE FROM autores WHERE idautores = :id';
                 $stmt_eliminar_autor = $conn->prepare($sql_eliminar_autor);
                 $stmt_eliminar_autor->execute(['id' => $id]);

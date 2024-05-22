@@ -1,8 +1,8 @@
 <?php
-// Conexión a la base de datos
+
 require_once("conexion.php");
 
-// Función para limpiar y validar datos de entrada
+
 function validarDatos($datos) {
     $datos = trim($datos);
     $datos = stripslashes($datos);
@@ -10,21 +10,19 @@ function validarDatos($datos) {
     return $datos;
 }
 
-// Verificar si se ha enviado el formulario de edición
+
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["editar_libro"])) {
     $id_libro = validarDatos($_POST["id_libro"]);
     $titulo = validarDatos($_POST["titulo"]);
     $autor = validarDatos($_POST["autor"]);
 
-    // Actualizar el libro en la base de datos
+    
     $sql = "UPDATE libros SET titulo = :titulo, autor = :autor WHERE idlibros = :id";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':titulo', $titulo);
     $stmt->bindParam(':autor', $autor);
     $stmt->bindParam(':id', $id_libro);
     $stmt->execute();
-
-    // Redireccionar de vuelta a la lista de libros con un mensaje
     header("Location: libros");
     exit();
 }

@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["enviar_sugerencia"])) 
     $nombre = validarDatos($_POST["nombre"]);
     $comentario = validarDatos($_POST["comentario"]);
 
-    // Insertar la sugerencia en la base de datos
+    
     $sql = "INSERT INTO buzon (nombre, comentario) VALUES (:nombre, :comentario)";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':nombre', $nombre);

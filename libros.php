@@ -2,7 +2,7 @@
 
 require_once("conexion.php");
 
-// Función para limpiar y validar datos de entrada
+
 function validarDatos($datos)
 {
     $datos = trim($datos);
@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["agregar_libro"])) {
     $titulo = validarDatos($_POST["titulo"]);
     $autor = validarDatos($_POST["autor"]);
 
-    // Insertar el nuevo libro en la base de datos
+    
     $sql = "INSERT INTO libros (titulo, autor) VALUES (:titulo, :autor)";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':titulo', $titulo);
@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["agregar_libro"])) {
 if (isset($_GET["eliminar"]) && !empty($_GET["eliminar"])) {
     $id_libro_eliminar = $_GET["eliminar"];
 
-    // Eliminar el libro de la base de datos
+    
     $sql = "DELETE FROM libros WHERE idlibros = :id";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':id', $id_libro_eliminar);
@@ -68,7 +68,7 @@ $libros = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <select id="autor" class="form-control" name="autor" required>
                     <option selected disabled>Seleccionar Autor</option>
                     <?php
-                    // Consulta para obtener la lista de autores
+                    
                     $sql_autores = "SELECT * FROM autores";
                     $stmt_autores = $conn->query($sql_autores);
                     $autores = $stmt_autores->fetchAll(PDO::FETCH_ASSOC);
@@ -84,7 +84,7 @@ $libros = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </form>
 
-    <!-- Tabla de libros -->
+    
     <table class="table table-striped table-biblioteca">
         <thead class="thead-dark">
             <tr>
