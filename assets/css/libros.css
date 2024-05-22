@@ -1,0 +1,25 @@
+body {
+    background-color: #f8f9fa;
+}
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.btn-biblioteca {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+}
+.btn-biblioteca:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+.table-biblioteca th, .table-biblioteca td {
+    border: 1px solid #dee2e6;
+}
+.table-biblioteca th {
+    background-color: #007bff;
+    color: #fff;
+}
