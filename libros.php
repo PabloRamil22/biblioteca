@@ -22,6 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["agregar_libro"])) {
     $stmt->bindParam(':titulo', $titulo);
     $stmt->bindParam(':autor', $autor);
     $stmt->execute();
+    header("Location: libros");
 }
 
 // Eliminar un libro

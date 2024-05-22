@@ -21,7 +21,7 @@
             $sql = 'INSERT INTO autores (nombre) VALUES (:nombre)';
             $stmt = $conn->prepare($sql);
             $stmt->execute(['nombre' => $nombre]);
-            echo "<div class='alert alert-success mt-3'>Autor agregado exitosamente</div>";
+            header("Location: autor");
         }
 
         // Actualizar autor existente
@@ -34,7 +34,7 @@
             echo "<div class='alert alert-success mt-3'>Autor actualizado exitosamente</div>";
         }
 
-        // Eliminar autor(Solo se puede eliminar un autor si nohay libros asociados a ese autor)
+        // Eliminar autor(Solo se puede eliminar un autor si no hay libros asociados a ese autor)
         if (isset($_GET['eliminar'])) {
             $id = $_GET['eliminar'];
 
@@ -69,7 +69,7 @@
         <form action="autor.php" method="POST" class="mb-4">
             <input type="hidden" name="id" value="<?php echo isset($autor['idautores']) ? $autor['idautores'] : ''; ?>">
             <div class="form-group">
-                <label for="nombre">Nombre</label>
+                <label for="nombre">Nombre del autor : </label>
                 <input type="text" name="nombre" class="form-control" value="<?php echo isset($autor['nombre']) ? $autor['nombre'] : ''; ?>" required>
             </div>
             <?php if (isset($autor['idautores'])) : ?>
